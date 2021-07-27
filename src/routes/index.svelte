@@ -1,12 +1,17 @@
 <script>
-	import BetterAccordion from '$lib/BetterAccordion.svelte';
-	import Toggle from '$lib/Toggle.svelte';
+	import SearchFilter from '$lib/SearchFilter.svelte';
+	// import BetterAccordion from '$lib/BetterAccordion.svelte';
+	// import Toggle from '$lib/Toggle.svelte';
 	let isToggled = false;
+
+	let items = ['scott', 'wes', 'landon', 'courtney', 'lucie', 'brooklyn', 'Samson'];
 </script>
 
 <h1>Welcome to Level Up UI</h1>
 
-<BetterAccordion isOpen={false} buttonText="Do I need a credit card??">
+<SearchFilter {items} />
+
+<!-- <BetterAccordion isOpen={false} buttonText="Do I need a credit card??">
 	<div>
 		<p>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iure a accusamus harum hic,
@@ -14,10 +19,10 @@
 			neque possimus! Aperiam, distinctio!
 		</p>
 	</div>
-</BetterAccordion>
+</BetterAccordion> -->
 
-<Toggle bind:isToggled label="Beta" />
-<Toggle bind:isToggled label="Beta" style="--toggleBackgroundColor: red;" />
+<!-- <Toggle bind:isToggled label="Beta" />
+<Toggle bind:isToggled label="Beta" style="--toggleBackgroundColor: red;" /> -->
 
 {#if isToggled}
 	<h1>I'm toggled</h1>
