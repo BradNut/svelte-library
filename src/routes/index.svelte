@@ -3,13 +3,13 @@
 	// import BetterAccordion from '$lib/BetterAccordion.svelte';
 	// import Toggle from '$lib/Toggle.svelte';
 	let isToggled = false;
-
+	let search = '';
 	let items = ['scott', 'wes', 'landon', 'courtney', 'lucie', 'brooklyn', 'Samson'];
 </script>
 
-<h1>Welcome to Level Up UI</h1>
+<h1>Welcome to Level Up UI {search}</h1>
 
-<SearchFilter {items} />
+<SearchFilter {items} bind:search />
 
 <!-- <BetterAccordion isOpen={false} buttonText="Do I need a credit card??">
 	<div>
