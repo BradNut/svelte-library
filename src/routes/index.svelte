@@ -1,14 +1,20 @@
 <script>
 	import SearchFilter from '$lib/SearchFilter.svelte';
 	import Field from '$lib/Field.svelte';
+	import Markdown from '$lib/Markdown.svelte';
 	// import BetterAccordion from '$lib/BetterAccordion.svelte';
 	// import Toggle from '$lib/Toggle.svelte';
 	let isToggled = false;
+
+	let text = '';
+	$: console.log(text);
 	let search = '';
 	let items = ['scott', 'wes', 'landon', 'courtney', 'lucie', 'brooklyn', 'Samson'];
 </script>
 
 <h1>Welcome to Level Up UI {search}</h1>
+
+<Markdown bind:text />
 
 <Field bind:value={search} label="Search" insrustions="Type to search" placeholder="Joe" />
 
