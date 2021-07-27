@@ -8,11 +8,20 @@
 	<span class:isOpen>▲</span>
 	{buttonText}</button
 >
-<div class="accordion-content" use:slide={isOpen}>
-	<slot />
+<div
+	class="accordion-content"
+	use:slide={{ isOpen, duration: 200 }}
+	on:animationEnd={() => console.log('Animation ended')}
+>
+	<div class="wrapper">
+		<slot />
+	</div>
 </div>
 
 <style>
+	.wrapper {
+		padding: 20px;
+	}
 	button {
 		display: block;
 		border: 0;
