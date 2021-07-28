@@ -3,6 +3,8 @@
 	import Field from '$lib/Field.svelte';
 	import Markdown from '$lib/Markdown.svelte';
 	import Modal from '$lib/Modal.svelte';
+	import Toast from '$lib/toast/Toast.svelte';
+	import { toast } from '$lib/toast/toast';
 	import Portal from '$lib/Portal.svelte';
 	// import BetterAccordion from '$lib/BetterAccordion.svelte';
 	// import Toggle from '$lib/Toggle.svelte';
@@ -23,7 +25,11 @@
 		<Field value={0} label="Number" type="number" />
 	</div>
 </Modal>
-<button on:click={() => (isModalOpen = true)}>Open Modal Form</button>
+
+<Toast />
+<button on:click={() => toast.send('New Message')}>New Toast</button>
+
+<!-- <button on:click={() => (isModalOpen = true)}>Open Modal Form</button> -->
 
 <SearchFilter {items} bind:search />
 
