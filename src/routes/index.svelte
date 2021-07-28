@@ -2,12 +2,14 @@
 	import SearchFilter from '$lib/SearchFilter.svelte';
 	import Field from '$lib/Field.svelte';
 	import Markdown from '$lib/Markdown.svelte';
+	import Modal from '$lib/Modal.svelte';
 	import Portal from '$lib/Portal.svelte';
 	// import BetterAccordion from '$lib/BetterAccordion.svelte';
 	// import Toggle from '$lib/Toggle.svelte';
 	let isToggled = false;
-
+	let isModalOpen = false;
 	let text = '';
+
 	$: console.log(text);
 	let search = '';
 	let items = ['scott', 'wes', 'landon', 'courtney', 'lucie', 'brooklyn', 'Samson'];
@@ -15,13 +17,13 @@
 
 <h1>Welcome to Level Up UI {search}</h1>
 
-<Portal>
-	<Markdown bind:text />
-</Portal>
-
-<Field bind:value={search} label="Search" insrustions="Type to search" placeholder="Joe" />
-
-<Field value={0} label="Number" type="number" />
+<Modal {isModalOpen}>
+	<div style="background: white; box-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
+		<Field bind:value={search} label="Search" insrustions="Type to search" placeholder="Joe" />
+		<Field value={0} label="Number" type="number" />
+	</div>
+</Modal>
+<button on:click={() => (isModalOpen = true)}>Open Modal Form</button>
 
 <SearchFilter {items} bind:search />
 
