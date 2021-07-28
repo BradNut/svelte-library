@@ -2,6 +2,7 @@
 	import SearchFilter from '$lib/SearchFilter.svelte';
 	import Field from '$lib/Field.svelte';
 	import Markdown from '$lib/Markdown.svelte';
+	import Portal from '$lib/Portal.svelte';
 	// import BetterAccordion from '$lib/BetterAccordion.svelte';
 	// import Toggle from '$lib/Toggle.svelte';
 	let isToggled = false;
@@ -14,7 +15,9 @@
 
 <h1>Welcome to Level Up UI {search}</h1>
 
-<Markdown bind:text />
+<Portal>
+	<Markdown bind:text />
+</Portal>
 
 <Field bind:value={search} label="Search" insrustions="Type to search" placeholder="Joe" />
 
