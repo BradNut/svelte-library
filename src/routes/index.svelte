@@ -27,7 +27,7 @@
 </Modal>
 
 <Toast />
-<button on:click={() => toast.send('New Message')}>New Toast</button>
+<button on:click={() => toast.send('New Message' + Math.random())}>New Toast</button>
 
 <!-- <button on:click={() => (isModalOpen = true)}>Open Modal Form</button> -->
 
