@@ -2,23 +2,21 @@
 	import { fly, fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	import Portal from '../Portal.svelte';
-	import { toast } from './toast';
 	import ToastMessage from './ToastMessage.svelte';
-
-	export let duration = 1000;
+	import { toast } from './toast';
 </script>
 
 <Portal>
 	<div class="toast-wrapper">
-		{#each $toast as message (message)}
+		{#each $toast as message (message.id)}
 			<div
-				on:click={toast.remove}
-				animate:flip
-				out:fade
+				on:click={() => toast.remove(message.id)}
 				in:fly={{ opacity: 0, x: 100 }}
-				class="toast"
+				out:fade
+				animate:flip
+				class={`toast ${message.type.toLowerCase()}`}
 			>
-				<ToastMessage {message} {duration} />
+				<ToastMessage {message} />
 			</div>
 		{/each}
 	</div>
@@ -32,10 +30,18 @@
 	}
 
 	.toast {
+		overflow: hidden;
+		position: relative;
 		margin-bottom: 1rem;
+		color: white;
+		background: var(--toast-background, #625df5);
 		padding: 20px;
 		border-radius: 15px;
-		background: white;
 		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.toast.error {
+		background: var(--toast-error-background, #e54b4b);
+		color: black;
 	}
 </style>
