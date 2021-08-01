@@ -19,7 +19,7 @@
 
 <h1>Welcome to Level Up UI {search}</h1>
 
-<Modal {isModalOpen}>
+<Modal bind:isModalOpen background={true}>
 	<div style="background: white; box-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
 		<Field bind:value={search} label="Search" insrustions="Type to search" placeholder="Joe" />
 		<Field value={0} label="Number" type="number" />
@@ -34,7 +34,7 @@
 	>Error Message</button
 >
 
-<!-- <button on:click={() => (isModalOpen = true)}>Open Modal Form</button> -->
+<button on:click={() => (isModalOpen = true)}>Open Modal Form</button>
 
 <SearchFilter {items} bind:search />
 
